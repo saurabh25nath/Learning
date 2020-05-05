@@ -1,5 +1,7 @@
 package com.learn.mongodb.springbootmongodbexample.model;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,13 +13,20 @@ public class Users {
 	private String name;
 	private String teamName;
 	private Long salary;
+	private UserAddress  userAddress;
+	private List<Product> products;
 	
-	public Users(Integer id, String name, String teamName, Long salary) {
+	
+
+	public Users(Integer id, String name, String teamName, Long salary, UserAddress userAddress,
+			List<Product> products) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.teamName = teamName;
 		this.salary = salary;
+		this.userAddress = userAddress;
+		this.products = products;
 	}
 
 	public Users() {
@@ -57,10 +66,28 @@ public class Users {
 		this.salary = salary;
 	}
 
+	public UserAddress getUserAddress() {
+		return userAddress;
+	}
+
+	public void setUserAddress(UserAddress userAddress) {
+		this.userAddress = userAddress;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
 	@Override
 	public String toString() {
-		return "Users [id=" + id + ", name=" + name + ", teamName=" + teamName + ", salary=" + salary + "]";
+		return "Users [id=" + id + ", name=" + name + ", teamName=" + teamName + ", salary=" + salary + ", userAddress="
+				+ userAddress + ", products=" + products + "]";
 	}
+
 	
 	
 	
